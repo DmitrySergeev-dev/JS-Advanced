@@ -6,6 +6,10 @@ class App {
 		{ path:"", view: MainView },
 	]
 
+	appState = {
+		favorites : []
+	}
+
 	constructor() {
 		window.addEventListener("haschange", this.route.bind(this))	
 		this.route();
@@ -16,7 +20,7 @@ class App {
 			this.currentView.destroy();
 		}
 		const view = this.routes.find(route => route.path == location.hash).view
-		this.currentView = new view();
+		this.currentView = new view(this.appState);
 		this.currentView.render();
 	}
 
