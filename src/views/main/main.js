@@ -13,7 +13,7 @@ export class MainView extends AbstractView {
 	constructor(appState) {
 		super();
 		this.appState = appState;
-		this.appstate = onChange(this.appState, this.appStateHook.bind(this));
+		this.appState = onChange(this.appState, this.appStateHook.bind(this));
 		this.setTitle("Поиск книг");
 	}
 
