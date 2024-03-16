@@ -2,7 +2,8 @@
   "name": "library",
   "version": "1.0.0",
   "description": "native js book library",
-  "main": "index.js",
+  "source": "./src/app.js",
+  "main": "./dist/main.js",
 
   "scripts": {
     "clean-dist": "rm -rf dist && mkdir dist",

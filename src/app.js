@@ -1,4 +1,5 @@
 import { MainView } from './views/main/main.js'
+import './global.css';
 
 class App {
 	

@@ -1,0 +1,13 @@
+body {
+  color: var(--black);
+  font-family: "Finger Paint", sans-serif;
+}
+
+:root {
+	--black: #000000;
+	--white: fafafa;
+}
+
+#root {
+	margin: 0 auto;
+}
