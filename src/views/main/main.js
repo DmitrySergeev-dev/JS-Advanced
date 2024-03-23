@@ -22,12 +22,28 @@ export class MainView extends AbstractView {
 	}
 
 	appStateHook(path) {
+		if (path === 'favorites') {
 		console.log(path);
+		}
 	}
 
-	stateHook(path){
-		console.log(path);
+
+	async stateHook(path) {
+		if (path === 'searchQuery') {
+			this.state.loading = true;
+			const data = await this.loadList(this.state.searchQuery, this.state.offset);
+			console.log(data);
+			this.state.loading = false;
+	                this.state.list = data.docs;
+		}
 	}
+
+	
+	async loadList(q, offset) {
+		const result = await fetch(`https://openlibrary.org/search.json?q=${q}&offset=${offset}`);
+		return result.json();
+	}
+
 
 	render() {
 		const main = document.createElement('div');
