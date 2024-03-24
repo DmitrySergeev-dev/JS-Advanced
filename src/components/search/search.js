@@ -20,7 +20,7 @@ export class Search extends DivElement {
 				<input 
 					type="text" 
 					placeholder="Найти книгу или автора..." 
-					class="search__input" value="" 
+					class="search__input" value="${this.state.searchQuery ? this.state.searchQuery : ''}" 
 				/>
 				<img src="./img/search_icon.png" width="48" height="48" alt="logo" />
 			</div>
