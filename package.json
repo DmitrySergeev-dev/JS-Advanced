@@ -2,10 +2,20 @@
   "name": "library",
   "version": "1.0.0",
   "description": "native js book library",
-  "main": "index.js",
+  "source": "./src/app.js",
+  "main": "./dist/main.js",
+
   "scripts": {
-    "dev": "parcel src/index.html --open",
-    "build": "parcel src/index.html --out-dir build",
+    "clean-dist": "rm -rf dist && mkdir dist",
+    "clean-build": "rm -rf build && mkdir build",
+
+    "copy-img": "cp -vR ./src/static/img ./dist; cp -vR ./src/static/img ./build",
+    "copy-files": "npm run copy-img",
+
+    "init": "npm run clean-dist && npm run clean-build && npm run copy-files",
+
+    "dev": "npm run init && parcel src/index.html --open",
+    "build": "npm run init && parcel src/index.html --out-dir build --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -14,7 +24,9 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "on-change": "^5.0.1"
+  },
   "devDependencies": {
     "parcel-bundler": "^1.12.5"
   }
